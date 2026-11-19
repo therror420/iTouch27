@@ -29,6 +29,11 @@ jobs:
           mkdir source
           unzip iTouch27_Android_Project.zip -d source
 
+      - name: Fix Java Kotlin Version
+        run: |
+          sed -i 's/JavaVersion.VERSION_1_8/JavaVersion.VERSION_17/g' source/app/build.gradle.kts
+          sed -i 's/jvmTarget = "1.8"/jvmTarget = "17"/g' source/app/build.gradle.kts
+
       - name: Build APK
         run: |
           cd source
