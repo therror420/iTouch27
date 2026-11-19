@@ -27,7 +27,7 @@ jobs:
       - name: Extract project
         run: |
           mkdir source
-          unzip iTouch27_Android_Project.zip -d source
+          unzip 'iTouch27_Android_Project(2).zip' -d source
 
       - name: Force Java 17
         run: |
