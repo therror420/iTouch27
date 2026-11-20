@@ -28,7 +28,6 @@ jobs:
         run: |
           mkdir source
           unzip 'iTouch27_Android_Project(2).zip' -d source
-
       - name: Force Java 17
         run: |
           cat > jvm17.init.gradle <<'EOF'
