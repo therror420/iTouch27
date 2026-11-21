@@ -24,15 +24,17 @@ jobs:
         with:
           gradle-version: '8.9'
 
-- name: Extract project
-  run: |
-    mkdir -p source
-    ZIP_FILE=$(find . -maxdepth 1 -type f -iname '*.zip' | head -n 1)
-    if [ -z "$ZIP_FILE" ]; then
-      echo "No ZIP file found"
-      exit 1
-    fi
-    unzip "$ZIP_FILE" -d source
+      - name: Extract project
+        run: |
+          mkdir -p source
+          ZIP_FILE=$(find . -maxdepth 1 -type f -iname '*.zip' | head -n 1)
+          if [ -z "$ZIP_FILE" ]; then
+            echo "No ZIP file found"
+            exit 1
+          fi
+          echo "Extracting $ZIP_FILE"
+          unzip "$ZIP_FILE" -d source
+
       - name: Force Java 17
         run: |
           cat > jvm17.init.gradle <<'EOF'
